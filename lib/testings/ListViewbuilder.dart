@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_main/testings/My_Dawer.dart';
 
 class ListViewBuilder extends StatefulWidget {
   const ListViewBuilder({super.key});
@@ -7,7 +8,6 @@ class ListViewBuilder extends StatefulWidget {
 }
 
 class _ListViewBuilderState extends State<ListViewBuilder> {
-  // ignore: non_constant_identifier_names
   final List MyList = [
     {
       Icons: const Icon(
@@ -66,22 +66,23 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
       "name": "ly ly"
     },
   ];
-  int selected = 0;
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My ListView Builder'),
       ),
+      drawer: const MyDrawer(),
       body: SafeArea(
         child: ListView.builder(
             itemCount: MyList.length,
-            itemBuilder: (context, index) {
-              var item = MyList[index];
+            itemBuilder: (context, i) {
+              var item = MyList[i];
               return InkWell(
                 onTap: () {
                   setState(() {
-                    selected = index;
+                    index = i;
                   });
                 },
                 child: Container(
@@ -89,8 +90,8 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
                   width: double.maxFinite,
                   height: 55,
                   decoration: BoxDecoration(
-                      color: selected == true
-                          ? Colors.blueAccent
+                      color: i == index
+                          ? Colors.blue
                           : Colors.grey.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(10)),
                   child: ListTile(
@@ -99,8 +100,7 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
                       item["name"],
                       style: TextStyle(
                           fontSize: 16,
-                          color:
-                              (selected == true) ? Colors.white : Colors.black),
+                          color: i == index ? Colors.white : Colors.black),
                     ),
                   ),
                 ),
