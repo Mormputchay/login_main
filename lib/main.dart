@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:login_main/homeworsk_stack/sale_screen.dart';
+
+import 'homeworsk_stack/BottomNavBar.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const SaleScreen(),
+      home: const BottomNavBar(),
     );
   }
 }
