@@ -38,7 +38,7 @@ class _FanhionSaleState extends State<FanhionSale> {
                               borderRadius: BorderRadius.circular(10)),
                         )),
                         Positioned(
-                          left: 10,
+                          left: 18,
                           top: 1,
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
