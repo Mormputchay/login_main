@@ -53,7 +53,7 @@ class BestSeller extends StatelessWidget {
             itemBuilder: (context, index) {
               var pObj = BestSeller1[index] as Map? ?? {};
               return Stack(
-                alignment: Alignment.center,
+                alignment: Alignment.bottomRight,
                 children: [
                   Container(
                     margin: const EdgeInsets.symmetric(
@@ -69,96 +69,119 @@ class BestSeller extends StatelessWidget {
                               blurRadius: 10,
                               offset: const Offset(0, 3))
                         ]),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(top: 7),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                pObj["image"].toString(),
-                                height: 150,
-                                width: double.maxFinite,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          child: Column(
                             children: [
-                              const SizedBox(
-                                height: 7,
-                              ),
-                              Text(
-                                pObj["name"].toString(),
-                                textAlign: TextAlign.start,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
-                                style: const TextStyle(
-                                    fontSize: 16, color: Colors.black),
-                              ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              RatingBar.builder(
-                                initialRating: 5,
-                                minRating: 1,
-                                direction: Axis.horizontal,
-                                allowHalfRating: true,
-                                itemCount: 5,
-                                itemSize: 15,
-                                itemBuilder: (context, _) => const Icon(
-                                  Icons.star,
-                                  color: Colors.amber,
+                              Container(
+                                margin: const EdgeInsets.only(top: 7),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset(
+                                    pObj["image"].toString(),
+                                    height: 150,
+                                    width: double.maxFinite,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                                onRatingUpdate: (rating) {
-                                  print(rating);
-                                },
                               ),
-                              const SizedBox(
-                                height: 2,
-                              ),
-                              Text(
-                                "\$${pObj["priceDisCount"]}".toString(),
-                                style: const TextStyle(
-                                    fontSize: 22,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Row(
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  const SizedBox(
+                                    height: 7,
+                                  ),
                                   Text(
-                                    "\$${pObj["priceFull"]}"
-                                        .toString()
-                                        .toUpperCase(),
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black12.withOpacity(0.5),
-                                        decoration: TextDecoration.lineThrough),
+                                    pObj["name"].toString(),
+                                    textAlign: TextAlign.start,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: const TextStyle(
+                                        fontSize: 16, color: Colors.black),
                                   ),
                                   const SizedBox(
-                                    width: 10,
+                                    height: 2,
                                   ),
-                                  const Text(
-                                    "9% off",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.blue),
+                                  RatingBar.builder(
+                                    initialRating: 5,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 15,
+                                    itemBuilder: (context, _) => const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: 2,
+                                  ),
+                                  Text(
+                                    "\$${pObj["priceDisCount"]}".toString(),
+                                    style: const TextStyle(
+                                        fontSize: 22,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "\$${pObj["priceFull"]}"
+                                            .toString()
+                                            .toUpperCase(),
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color:
+                                                Colors.black12.withOpacity(0.5),
+                                            decoration:
+                                                TextDecoration.lineThrough),
+                                      ),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
+                                      const Text(
+                                        "9% off",
+                                        style: TextStyle(
+                                            fontSize: 15, color: Colors.blue),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Container(
+                              width: 40,
+                              height: 45,
+                              decoration: const BoxDecoration(
+                                  color: Colors.blueAccent,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(8))),
+                              child: const Icon(
+                                Icons.shopping_cart,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
