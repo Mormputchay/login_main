@@ -168,17 +168,16 @@ class BestSeller extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.centerRight,
                             child: Container(
-                              width: 40,
-                              height: 45,
-                              decoration: const BoxDecoration(
-                                  color: Colors.blueAccent,
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8))),
-                              child: const Icon(
-                                Icons.shopping_cart,
-                                color: Colors.white,
-                              ),
-                            ),
+                                width: 40,
+                                height: 45,
+                                decoration: const BoxDecoration(
+                                    color: Colors.blueAccent,
+                                    borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(8))),
+                                child: Image.asset(
+                                  'assets/shoes/shopping_cart.png',
+                                  color: Colors.white,
+                                )),
                           ),
                         ),
                       ],
